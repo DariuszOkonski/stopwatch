@@ -12,7 +12,7 @@ function App() {
   const handleStart = () => {
     const timeIntervalId = setInterval(() => {
       setTime((prevTime) => prevTime + 1);
-    }, 100);
+    }, 1);
     setTimeInterval(timeIntervalId);
     setIsRunning(true);
   };
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <Display time='123581023' />
+      <Display time={time} />
 
       <div className={styles.buttons}>
         <Button disabled={time} action={handleStart}>
