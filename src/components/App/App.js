@@ -1,9 +1,10 @@
+import Display from '../Display/Display';
 import styles from './App.module.scss';
 
 function App() {
   return (
     <div className={styles.app}>
-      <h1>StopWatch</h1>
+      <Display />
     </div>
   );
 }
