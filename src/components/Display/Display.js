@@ -1,6 +1,6 @@
 import { parseMilliseconds } from '../../utils/parseMiliseconds';
 import styles from './Display.module.scss';
-import { padToTwoDigits } from '../../utils/padToTwoDigits';
+import { padToThreeDigits, padToTwoDigits } from '../../utils/padToTwoDigits';
 
 const Display = ({ time }) => {
   const { hours, minutes, seconds, milliseconds } = parseMilliseconds(time);
@@ -9,7 +9,7 @@ const Display = ({ time }) => {
     <div className={styles.display}>
       <p>
         {padToTwoDigits(hours)}:{padToTwoDigits(minutes)}:
-        {padToTwoDigits(seconds)}.{milliseconds}
+        {padToTwoDigits(seconds)}.{padToThreeDigits(milliseconds)}
       </p>
     </div>
   );
