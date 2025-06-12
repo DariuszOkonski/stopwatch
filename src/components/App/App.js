@@ -7,7 +7,11 @@ function App() {
     <div className={styles.app}>
       <Display />
 
-      <Button>start</Button>
+      <div className={styles.buttons}>
+        <Button>start</Button>
+        <Button>stop</Button>
+        <Button>reset</Button>
+      </div>
     </div>
   );
 }
