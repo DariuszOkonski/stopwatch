@@ -1,6 +1,9 @@
-import { parseMilliseconds } from '../../utils/parseMiliseconds';
+import {
+  padToThreeDigits,
+  padToTwoDigits,
+  parseMilliseconds,
+} from '../../utils/utils';
 import styles from './Display.module.scss';
-import { padToThreeDigits, padToTwoDigits } from '../../utils/padToTwoDigits';
 
 const Display = ({ time }) => {
   const { hours, minutes, seconds, milliseconds } = parseMilliseconds(time);
