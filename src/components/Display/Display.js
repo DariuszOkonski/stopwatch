@@ -1,9 +1,16 @@
+import { parseMilliseconds } from '../../utils/parseMiliseconds';
 import styles from './Display.module.scss';
+import { padToTwoDigits } from '../../utils/padToTwoDigits';
 
-const Display = () => {
+const Display = ({ time }) => {
+  const { hours, minutes, seconds, milliseconds } = parseMilliseconds(time);
+
   return (
     <div className={styles.display}>
-      <p>HH:mm:ss.ms</p>
+      <p>
+        {padToTwoDigits(hours)}:{padToTwoDigits(minutes)}:
+        {padToTwoDigits(seconds)}.{milliseconds}
+      </p>
     </div>
   );
 };

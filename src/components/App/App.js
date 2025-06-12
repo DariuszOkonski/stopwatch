@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <Display />
+      <Display time='123581023' />
 
       <div className={styles.buttons}>
         <Button disabled={time} action={handleStart}>
