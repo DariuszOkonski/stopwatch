@@ -6,24 +6,34 @@ import styles from './App.module.scss';
 function App() {
   const [time, setTime] = useState(0);
   const [timeInterval, setTimeInterval] = useState(null);
+  const [isStopped, setIsStopped] = useState(false);
+  const [isRunning, setIsRunning] = useState(false);
 
   const handleStart = () => {
-    console.log('start');
     const timeIntervalId = setInterval(() => {
       setTime((prevTime) => prevTime + 1);
-    }, 1000);
+    }, 100);
     setTimeInterval(timeIntervalId);
+    setIsRunning(true);
   };
   const handleStop = () => {
-    console.log('stop');
     clearInterval(timeInterval);
-    setTimeInterval(null);
+    setRunningFlags(null, true, false);
   };
   const handleReset = () => {
-    console.log('reset');
     clearInterval(timeInterval);
     setTime(0);
-    setTimeInterval(null);
+    setRunningFlags(null, false, false);
+  };
+
+  const setRunningFlags = (
+    localTimeInterval,
+    localIsStopped,
+    localIsRunning
+  ) => {
+    setTimeInterval(localTimeInterval);
+    setIsStopped(localIsStopped);
+    setIsRunning(localIsRunning);
   };
 
   return (
@@ -31,13 +41,13 @@ function App() {
       <Display />
 
       <div className={styles.buttons}>
-        <Button disabled={false} action={handleStart}>
+        <Button disabled={time} action={handleStart}>
           start
         </Button>
-        <Button disabled={false} action={handleStop}>
+        <Button disabled={!isRunning} action={handleStop}>
           stop
         </Button>
-        <Button disabled={true} action={handleReset}>
+        <Button disabled={!isStopped} action={handleReset}>
           reset
         </Button>
       </div>
