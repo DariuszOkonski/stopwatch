@@ -1,0 +1,17 @@
+$main-background-color: #2f3542;
+$light-color: #eee;
+$primary-color: #26dd80;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: $light-color;
+  font-size: 62.5%;
+}
